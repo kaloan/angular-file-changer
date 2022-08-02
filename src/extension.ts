@@ -272,7 +272,11 @@ export function activate(context: vscode.ExtensionContext) {
       }
 
       const currentFile = editor.document.fileName;
-      const targetFile = getFileNameWithNgrxExtension(currentFile, { pathName: 'actions', fileExtension: 'actions' });
+      const actionFolder = vscode.workspace
+        .getConfiguration("angular-file-changer")
+        .get<string>("actionFolder");
+      if (actionFolder[actionFolder.length - 1] !== '/') actionFolder.push('/');
+      const targetFile = actionFolder + getFileNameWithNgrxExtension(currentFile, { pathName: 'actions', fileExtension: 'actions' });
 
       xOpenTextDocument(
         targetFile,
@@ -299,7 +303,11 @@ export function activate(context: vscode.ExtensionContext) {
       }
 
       const currentFile = editor.document.fileName;
-      const targetFile = getFileNameWithNgrxExtension(currentFile, { pathName: 'effects', fileExtension: 'effects' });
+      const effectFolder = vscode.workspace
+        .getConfiguration("angular-file-changer")
+        .get<string>("effectFolder");
+      if (actionFolder[actionFolder.length - 1] !== '/') actionFolder.push('/');
+      const targetFile = effectFolder + getFileNameWithNgrxExtension(currentFile, { pathName: 'effects', fileExtension: 'effects' });
 
       xOpenTextDocument(
         targetFile,
@@ -326,7 +334,10 @@ export function activate(context: vscode.ExtensionContext) {
       }
 
       const currentFile = editor.document.fileName;
-      const targetFile = getFileNameWithNgrxExtension(currentFile, { pathName: 'reducers', fileExtension: 'reducer' });
+      const reducerFolder = vscode.workspace
+        .getConfiguration("angular-file-changer")
+        .get<string>("reducerFolder");
+      const targetFile = reducerFolder + getFileNameWithNgrxExtension(currentFile, { pathName: 'reducers', fileExtension: 'reducer' });
 
       xOpenTextDocument(
         targetFile,

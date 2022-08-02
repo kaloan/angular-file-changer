@@ -135,12 +135,28 @@
       }
     ],
     "configuration": {
-      "title": "Side by side",
+      "type": "object",
+      "title": "angular-file-changer",
       "properties": {
         "angular-file-changer.openSideBySide": {
           "type": "boolean",
           "default": false,
           "description": "Open files side by side to Angular Component Typescript file."
+        },
+        "angular-file-changer.actionFolder": {
+          "type": "string",
+          "default": "",
+          "description": "Search in this folder for the action."
+        },
+        "angular-file-changer.effectFolder": {
+          "type": "string",
+          "default": "",
+          "description": "Search in this folder for the effect."
+        },
+        "angular-file-changer.reducerFolder": {
+          "type": "string",
+          "default": "",
+          "description": "Search in this folder for the reducer."
         }
       }
     }
